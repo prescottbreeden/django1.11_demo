@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Semi-Restful Users</title>
+    {% load static %}
+	<link rel="stylesheet" href="{% static 'login_reg/style.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+    <div class="u-container">
+        <div class="reg">
+            <h2 class="reg__title">Register</h2>
+                <form 
+                    action="{% url 'login_reg:register' %}" 
+                    method="POST"
+                    class="reg__form">
+                    <!-- reg username -->
+                    {% csrf_token %}
+                    <div class="reg__form--row">
+                        <label 
+                            for="username" 
+                            class="reg__form--label">
+                            Username:
+                        </label>
+                        <input 
+                            type="text" 
+                            name="username" 
+                            id="username" 
+                            class="reg__form--input">
+                    </div>
+                    <!-- reg email -->
+                    <div class="reg__form--row">
+                        <label 
+                            for="email" 
+                            class="reg__form--label">
+                            Email:
+                        </label>
+                        <input 
+                            type="email" 
+                            name="email" 
+                            id="email" 
+                            class="reg__form--input">
+                    </div>
+                    <!-- reg password -->
+                    <div class="reg__form--row">
+                        <label 
+                            for="password" 
+                            class="reg__form--label">
+                            Password:
+                        </label>
+                        <input 
+                            type="password" 
+                            name="password" 
+                            id="password" 
+                            class="reg__form--input">
+                    </div>
+                    <!-- reg confirm password -->
+                    <div class="reg__form--row">
+                        <label 
+                            for="password2" 
+                            class="reg__form--label">
+                            Confirm PW:
+                        </label>
+                        <input 
+                            type="password" 
+                            name="password2" 
+                            id="password2" 
+                            class="reg__form--input">
+                    </div>
+                    <button type="submit">Create Account</button>
+                </form>
+            </div>
+            <div class="login">
+                <h2 class="reg__title">Login</h2>
+                <form 
+                    action="{% url 'login_reg:login' %}" 
+                    method="POST"
+                    class="login__form">
+                    {% csrf_token %}
+                    <!-- login email -->
+                    <div class="reg__form--row">
+                        <label 
+                            for="login_email" 
+                            class="reg__form--label">
+                            Email:
+                        </label>
+                        <input 
+                            type="email" 
+                            name="login_email" 
+                            id="login_email" 
+                            class="reg__form--input">
+                    </div>
+                    <!-- login password -->
+                    <div class="reg__form--row">
+                        <label 
+                            for="login_password" 
+                            class="reg__form--label">
+                            Password:
+                        </label>
+                        <input 
+                            type="password" 
+                            name="login_password" 
+                            id="login_password" 
+                            class="reg__form--input">
+                    </div>
+                    <button type="submit">Login Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
